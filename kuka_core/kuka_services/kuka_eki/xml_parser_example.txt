@@ -1,0 +1,13 @@
+# # Examples
+#
+# # reading values from xml
+# xml_to_read = '<Server><Pos x="50" y="50">5</Pos></Server>'
+# reader = XmlReader(xml_to_read)
+# print(reader.get_tag_value('Pos'))
+# print(reader.get_attribute_value('Pos', 'x'))
+#
+# # writing values to xml
+# xml_to_write = '<Server><Pos x=${pos_x_val} y=${pos_y_val}>${pos_val}</Pos></Server>'
+# writer = XmlWriter(xml_to_write)
+# writer.set_tag('${pos_val}', '5', {'${pos_x_val}': '10', '${pos_y_val}': '20'})
+# print(writer.evaluate())
