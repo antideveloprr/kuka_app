@@ -1,62 +1,62 @@
-<!DOCTYPE html>
-<html>
-
-<head>
+{% extends "template.html" %}
+{% block head %}
     <title>home</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/template.css">
     <link rel="stylesheet" href="static/css/home.css">
-</head>
+{% endblock head %}
 
-<body class="container-fluid">
-<header class="row">
-    <ul id="nav" class="col-sm-9" >
-        <li><a href="/">home</a></li>
-        <li><a href="/help">help</a></li>
-    </ul>
-    <!--<span id="error" class="alert alert-warning"></span>-->
-    <div class="form-inline col-sm-3">
-        <div class="form-group">
-            <input id="tcp_host" type="text" placeholder="host" class="form-control">
-            <input id="tcp_port" type="text" placeholder="port" class="form-control">
-            <button id="tcp_btn" class="btn btn-md btn-success">connect</button>
-        </div>
-    </div>
-</header>
-<section class="row">
-    <div class="col-sm-3 col-sm-offset-1 container-fluid">
-        <div class="row">
-            <h3>connection status</h3>
-            <div id="div_connection_status">
+{% block header %}
+    <header class="row">
+        <ul id="nav" class="col-sm-6">
+            <li><a href="/">home</a></li>
+            <li><a href="/help">help</a></li>
+        </ul>
+        <!--<span id="error" class="alert alert-warning"></span>-->
+        <div class="form-inline col-sm-6">
+            <div class="form-group">
+                <input id="tcp_host" type="text" placeholder="host" class="form-control">
+                <input id="tcp_port" type="text" placeholder="port" class="form-control">
+                <button id="tcp_btn" class="btn btn-md btn-success">connect</button>
             </div>
         </div>
-        <div id="div_server_response" class="row">
-            <h3>server response</h3>
-            <textarea readonly id="textarea_server_response" rows="10" class="form-control"></textarea>
-        </div>
-        <div id="div_client_response" class="row">
-            <h3>kuka response</h3>
-            <textarea readonly id="textarea_client_response" rows="10" class="form-control"></textarea>
-        </div>
-    </div>
-    <div class="col-sm-6 col-sm-offset-1 container-fluid">
-        <div class="row">
-            <h3>video stream</h3>
-            <div id="div_video" class="col-sm-12">
-                <img id="image_left" class="col-sm-6">
-                <img id="image_right" class="col-sm-6">
+    </header>
+{% endblock header %}
+
+{% block main_section %}
+    <section class="row">
+        <div class="col-sm-3 col-sm-offset-1 container-fluid">
+            <div class="row">
+                <h3>connection status</h3>
+                <div id="div_connection_status">
+                </div>
+            </div>
+            <div id="div_server_response" class="row">
+                <h3>server response</h3>
+                <textarea readonly id="textarea_server_response" rows="10" class="form-control"></textarea>
+            </div>
+            <div id="div_client_response" class="row">
+                <h3>kuka response</h3>
+                <textarea readonly id="textarea_client_response" rows="10" class="form-control"></textarea>
             </div>
         </div>
-        <div id="div_system_logs" class="row">
-            <h3>system logs</h3>
-            <textarea readonly id="textarea_system_logs" rows="15" class="form-control"></textarea>
+        <div class="col-sm-6 col-sm-offset-1 container-fluid">
+            <div class="row">
+                <h3>video stream</h3>
+                <div id="div_video" class="col-sm-12">
+                    <img id="image_left" class="col-sm-6">
+                    <img id="image_right" class="col-sm-6">
+                </div>
+            </div>
+            <div id="div_system_logs" class="row">
+                <h3>system logs</h3>
+                <textarea readonly id="textarea_system_logs" rows="15" class="form-control"></textarea>
+            </div>
         </div>
-    </div>
-</section>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    </section>
+{% endblock main_section %}
+
+{% block scripts %}
+{{ super() }}
 <script type="text/javascript">
         $(document).ready(()=>{
             var socket = io.connect('http://' + document.domain + ':' + location.port);
@@ -130,8 +130,5 @@
                 }
             });
         });
-
 </script>
-</body>
-
-</html>
+{% endblock scripts %}

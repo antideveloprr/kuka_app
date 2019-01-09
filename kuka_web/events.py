@@ -5,7 +5,6 @@ from kuka_core import InternalAddress
 from kuka_core.forwarder import Forwarder, DeviceForwarderTopic, SystemForwarderTopic
 from kuka_core.kuka_services.kuka_camera import CameraService
 from kuka_core.kuka_services.kuka_eki import EkiServerService
-from kuka_core.kuka_services.kuka_eki.client import TcpClientProcess
 from kuka_core.kuka_services.kuka_tool import ToolService
 from kuka_web import app
 from kuka_web.listener import Listener
@@ -31,6 +30,15 @@ def connect():
     device_forwarder = Forwarder(topic=DeviceForwarderTopic.FORWARDER,
                                  pub_addr=InternalAddress.DEVICE_PUB,
                                  sub_addr=InternalAddress.DEVICE_SUB)
+
+    internal_forwarder = Forwarder(topic=DeviceForwarderTopic.FORWARDER_INTERNAL,
+                                   pub_addr=('127.0.0.1', 8100),
+                                   sub_addr=('127.0.0.1', 8101))
+
+    internal_forwarder.running = True
+    if DeviceForwarderTopic.FORWARDER_INTERNAL not in forwarders.keys():
+        forwarders[DeviceForwarderTopic.FORWARDER_INTERNAL] = internal_forwarder
+        forwarders.get(DeviceForwarderTopic.FORWARDER_INTERNAL).start()
 
     system_forwarder.running = True
     if SystemForwarderTopic.FORWARDER not in forwarders.keys():
@@ -62,6 +70,13 @@ def disconnect():
         device_forwarder.terminate()
         device_forwarder.join()
         forwarders.pop(DeviceForwarderTopic.FORWARDER)
+
+    if DeviceForwarderTopic.FORWARDER_INTERNAL in devices.keys():
+        internal_forwarder = devices.get(DeviceForwarderTopic.FORWARDER_INTERNAL)
+        internal_forwarder.running = False
+        internal_forwarder.terminate()
+        internal_forwarder.join()
+        devices.pop(DeviceForwarderTopic.FORWARDER_INTERNAL)
 
 
 @socketio.on('tcp_start')
@@ -103,8 +118,9 @@ def tcp_start(data):
     tool_service = ToolService(topic=DeviceForwarderTopic.TOOL,
                                device_pub_addr=InternalAddress.DEVICE_PUB,
                                system_pub_addr=InternalAddress.SYSTEM_PUB,
-                               processing_time=1,
-                               serial_port_addr='COM3',
+
+                               processing_time=10,
+                               serial_port_addr='COM4',
                                serial_baud_rate=115200)
 
     camera_service = CameraService(topic=DeviceForwarderTopic.CAMERA,
@@ -160,12 +176,12 @@ def tcp_start(data):
         devices.get(DeviceForwarderTopic.CAMERA).start()
         print('Camera service started.')
 
-    # TODO: implement manual testing client
-    tcp_client = TcpClientProcess((host, port))
-    tcp_client.running = True
-    if 'tcp_client' not in processes.keys():
-        processes['tcp_client'] = tcp_client
-        processes.get('tcp_client').start()
+    # # TODO: implement manual testing client
+    # tcp_client = TcpClientProcess((host, port))
+    # tcp_client.running = True
+    # if 'tcp_client' not in processes.keys():
+    #     processes['tcp_client'] = tcp_client
+    #     processes.get('tcp_client').start()
 
 
 @socketio.on('tcp_stop')
@@ -231,9 +247,9 @@ def tcp_stop(data):
         devices.pop(DeviceForwarderTopic.EKI)
         print('Eki service terminated.')
 
-    if 'tcp_client' in processes.keys():
-        tcp_client = processes.get('tcp_client')
-        tcp_client.running = False
-        tcp_client.terminate()
-        tcp_client.join()
-        processes.pop('tcp_client')
+    # if 'tcp_client' in processes.keys():
+    #     tcp_client = processes.get('tcp_client')
+    #     tcp_client.running = False
+    #     tcp_client.terminate()
+    #     tcp_client.join()
+    #     processes.pop('tcp_client')

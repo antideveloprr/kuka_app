@@ -11,6 +11,7 @@ class DeviceForwarderTopic:
     TOOL = 'tool'
     CAMERA = 'camera'
     FORWARDER = 'device_forwarder'
+    FORWARDER_INTERNAL = 'internal_forwarder'
 
 
 class SystemForwarderTopic:

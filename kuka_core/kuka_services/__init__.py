@@ -3,8 +3,7 @@ from multiprocessing import Process
 
 import zmq
 
-from kuka_core.forwarder import ForwarderChannel, SystemForwarderTopic
-from kuka_core.utils import Constant
+from kuka_core.forwarder import ForwarderChannel
 
 
 class DeviceService(Process, ForwarderChannel):

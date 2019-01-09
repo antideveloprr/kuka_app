@@ -1,0 +1,47 @@
+2019-01-09 12:02:36,036 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:02:36,833 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:02:38,573 - init_utils - INFO - browser client connected
+2019-01-09 12:02:38,872 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:02:39,432 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8003)
+2019-01-09 12:02:39,432 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8001)
+2019-01-09 12:02:39,438 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8000)
+2019-01-09 12:02:39,449 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8002)
+2019-01-09 12:02:48,247 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:02:48,247 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:04:52,822 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:04:53,623 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:04:55,002 - init_utils - INFO - browser client connected
+2019-01-09 12:04:55,482 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:04:55,482 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:04:56,024 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8003)
+2019-01-09 12:04:56,024 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8001)
+2019-01-09 12:04:56,037 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8002)
+2019-01-09 12:04:56,042 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8000)
+2019-01-09 12:05:27,167 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:05:27,167 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:05:27,171 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:10:27,066 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:10:27,805 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:10:29,723 - init_utils - INFO - browser client connected
+2019-01-09 12:10:30,109 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:10:30,109 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:10:30,662 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8003)
+2019-01-09 12:10:30,666 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8002)
+2019-01-09 12:10:30,673 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8000)
+2019-01-09 12:10:31,663 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:10:31,665 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:10:31,669 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:38:30,636 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:38:31,418 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:38:33,696 - init_utils - INFO - browser client connected
+2019-01-09 12:38:34,031 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:38:34,591 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8003)
+2019-01-09 12:38:34,601 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8002)
+2019-01-09 12:38:34,601 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8000)
+2019-01-09 12:58:40,724 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:58:41,539 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:58:46,671 - init_utils - INFO - browser client connected
+2019-01-09 12:58:46,994 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:58:46,994 - init_utils - INFO - initializing flask websocket app
+2019-01-09 12:58:47,549 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8001)
+2019-01-09 12:58:47,563 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8002)

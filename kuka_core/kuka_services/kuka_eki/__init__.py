@@ -1,5 +1,7 @@
 import socket
 
+import zmq
+
 from kuka_core.forwarder import SystemForwarderTopic, DeviceForwarderTopic
 from kuka_core.kuka_services import DeviceService
 from kuka_core.utils import Constant
@@ -48,23 +50,23 @@ def read_xml_pos(xml):
 def init_pos_list():
     pos_list = [Position(x=220,
                          y=-130,
-                         z=600),
+                         z=700),
                 Position(x=515,
                          y=-130,
-                         z=600),
+                         z=700),
                 Position(x=515,
                          y=278,
-                         z=600),
+                         z=700),
                 Position(x=220,
                          y=278,
-                         z=600)
+                         z=700)
                 ]
     return pos_list
 
 
 class EkiServerService(DeviceService):
     """
-
+    EKI Ethernet KUKA communication class.
     """
 
     def __init__(self,
@@ -85,11 +87,16 @@ class EkiServerService(DeviceService):
         super().__setup__()
         try:
             self.__pos_list = init_pos_list()
-            eki_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            eki_socket.bind(self.__eki_addr)
-            eki_socket.listen(10)
+            self.eki_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.eki_socket.bind(self.__eki_addr)
+            self.eki_socket.listen(10)
             self.__pos_idx = 0
-            self.__connection, client_addr = eki_socket.accept()
+
+            self.__connection, client_addr = self.eki_socket.accept()
+            context = zmq.Context()
+            self.__tool_socket = context.socket(zmq.REQ)
+            self.__tool_socket.connect('tcp://127.0.0.1:8110')
+
         except Exception as e:
             byte_msg = [bytes(SystemForwarderTopic.ERROR, Constant.ENCODING_FORMAT),
                         bytes(str(e), Constant.ENCODING_FORMAT)]
@@ -98,20 +105,23 @@ class EkiServerService(DeviceService):
 
     def __process__(self):
         """
-
+        Processing KUKA TCP connection and calculating operations
         """
         super().__process__()
         try:
-            print('connecting server')
-            print('server initialized!')
             received = self.__connection.recv(self.__buffer_size)
             if received:
                 actual_pos = read_xml_pos(str(received, Constant.ENCODING_FORMAT))
                 next_pos = self.__pos_list[self.__pos_idx]
                 sent = write_xml_pos(next_pos)
-                print('server data received: ', sent)
+                if self.__pos_idx == 3:
+                    byte_msg = [bytes(DeviceForwarderTopic.TOOL, Constant.ENCODING_FORMAT),
+                                bytes('open tool', Constant.ENCODING_FORMAT)]
+                    self.__tool_socket.send_string('open tool')
+                    msg = self.__tool_socket.recv_string()
                 self.__connection.send(bytes(sent, Constant.ENCODING_FORMAT))
                 pos_msg = '%s,%s' % (actual_pos, next_pos)
+                print(pos_msg)
                 byte_msg = [bytes(DeviceForwarderTopic.EKI, Constant.ENCODING_FORMAT),
                             bytes(pos_msg, Constant.ENCODING_FORMAT)]
                 self._device_socket.send_multipart(byte_msg)
@@ -126,4 +136,4 @@ class EkiServerService(DeviceService):
         super().run()
 
     def __terminate(self):
-        self.__connection.close()
+        pass
