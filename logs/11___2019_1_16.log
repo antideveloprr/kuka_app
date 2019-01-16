@@ -1,0 +1,79 @@
+2019-01-16 11:29:44,386 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:29:49,398 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:29:51,589 - init_utils - INFO - redirecting to home page
+2019-01-16 11:29:51,898 - init_utils - INFO - browser client connected
+2019-01-16 11:29:52,322 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:29:52,326 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:29:52,331 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:29:52,997 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8100)
+2019-01-16 11:29:53,000 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8003)
+2019-01-16 11:29:53,001 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8001)
+2019-01-16 11:29:53,003 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8101)
+2019-01-16 11:29:53,006 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8000)
+2019-01-16 11:29:53,008 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8002)
+2019-01-16 11:30:08,210 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:30:08,210 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:30:08,210 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:30:45,358 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:30:45,363 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:30:45,364 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:33:05,451 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:33:10,130 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:33:11,610 - init_utils - INFO - browser client connected
+2019-01-16 11:33:11,975 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:33:12,515 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8001)
+2019-01-16 11:33:12,516 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8003)
+2019-01-16 11:33:12,516 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8100)
+2019-01-16 11:33:12,520 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8000)
+2019-01-16 11:33:12,526 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8101)
+2019-01-16 11:33:12,534 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8002)
+2019-01-16 11:33:16,527 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:33:16,527 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:33:16,527 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:02,744 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:03,457 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:08,188 - init_utils - INFO - browser client connected
+2019-01-16 11:41:08,686 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:08,689 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:08,690 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:08,790 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:08,810 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:08,810 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:09,831 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8001)
+2019-01-16 11:41:09,839 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8003)
+2019-01-16 11:41:09,839 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8000)
+2019-01-16 11:41:09,845 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8002)
+2019-01-16 11:41:09,845 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8100)
+2019-01-16 11:41:09,852 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8101)
+2019-01-16 11:41:54,006 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:55,010 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:58,751 - init_utils - INFO - browser client connected
+2019-01-16 11:41:59,003 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:59,004 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:41:59,579 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8003)
+2019-01-16 11:41:59,579 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8100)
+2019-01-16 11:41:59,579 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8001)
+2019-01-16 11:41:59,584 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8101)
+2019-01-16 11:41:59,584 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8002)
+2019-01-16 11:41:59,584 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8000)
+2019-01-16 11:42:06,101 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:42:06,101 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:42:06,101 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:44:55,895 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:44:56,752 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:44:57,820 - init_utils - INFO - browser client connected
+2019-01-16 11:44:58,139 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:44:58,139 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:44:58,139 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:44:58,667 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8100)
+2019-01-16 11:44:58,668 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8001)
+2019-01-16 11:44:58,672 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8000)
+2019-01-16 11:44:58,674 - init_utils - INFO - setting up subscribing layer to services on ('127.0.0.1', 8003)
+2019-01-16 11:44:58,677 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8101)
+2019-01-16 11:44:58,678 - init_utils - INFO - setting up publishing layer to listeners on ('127.0.0.1', 8002)
+2019-01-16 11:45:16,510 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:45:16,510 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:45:16,510 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:45:44,182 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:45:44,182 - init_utils - INFO - initializing flask websocket app
+2019-01-16 11:45:44,182 - init_utils - INFO - initializing flask websocket app

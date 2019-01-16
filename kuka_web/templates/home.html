@@ -1,58 +1,60 @@
 {% extends "template.html" %}
 {% block head %}
-    <title>home</title>
-    <link rel="stylesheet" href="static/css/template.css">
-    <link rel="stylesheet" href="static/css/home.css">
+<title>home</title>
+<link rel="stylesheet" href="static/css/template.css">
+<link rel="stylesheet" href="static/css/home.css">
 {% endblock head %}
 
 {% block header %}
-    <header class="row">
-        <ul id="nav" class="col-sm-6">
-            <li><a href="/">home</a></li>
-            <li><a href="/help">help</a></li>
-        </ul>
-        <!--<span id="error" class="alert alert-warning"></span>-->
-        <div class="form-inline col-sm-6">
-            <div class="form-group">
-                <input id="tcp_host" type="text" placeholder="host" class="form-control">
-                <input id="tcp_port" type="text" placeholder="port" class="form-control">
-                <button id="tcp_btn" class="btn btn-md btn-success">connect</button>
-            </div>
+<header class="row">
+    <ul id="nav" class="col-sm-6">
+        <li><a href="/">home</a></li>
+        <li><a href="/help">help</a></li>
+    </ul>
+    <!--<span id="error" class="alert alert-warning"></span>-->
+    <div class="form-inline col-sm-6">
+        <div class="form-group">
+            <input id="tcp_host" type="text" placeholder="host" class="form-control">
+            <input id="tcp_port" type="text" placeholder="port" class="form-control">
+            <button id="tcp_btn" class="btn btn-md btn-success">connect</button>
         </div>
-    </header>
+    </div>
+</header>
 {% endblock header %}
 
 {% block main_section %}
-    <section class="row">
-        <div class="col-sm-3 col-sm-offset-1 container-fluid">
-            <div class="row">
-                <h3>connection status</h3>
-                <div id="div_connection_status">
-                </div>
-            </div>
-            <div id="div_server_response" class="row">
-                <h3>server response</h3>
-                <textarea readonly id="textarea_server_response" rows="10" class="form-control"></textarea>
-            </div>
-            <div id="div_client_response" class="row">
-                <h3>kuka response</h3>
-                <textarea readonly id="textarea_client_response" rows="10" class="form-control"></textarea>
+<section class="row">
+    <div class="col-sm-3 col-sm-offset-1 container-fluid">
+        <div class="row">
+            <h3>connection status</h3>
+            <div id="div_connection_status">
+                <h3 style="color: orange">Connected to: <h4 id="connection_addr">no connection</h4></h3>
+                <h3 style="color: orange">Working status: <h4 id="working_status">no connection</h4></h3>
             </div>
         </div>
-        <div class="col-sm-6 col-sm-offset-1 container-fluid">
-            <div class="row">
-                <h3>video stream</h3>
-                <div id="div_video" class="col-sm-12">
-                    <img id="image_left" class="col-sm-6">
-                    <img id="image_right" class="col-sm-6">
-                </div>
-            </div>
-            <div id="div_system_logs" class="row">
-                <h3>system logs</h3>
-                <textarea readonly id="textarea_system_logs" rows="15" class="form-control"></textarea>
+        <div id="div_server_response" class="row">
+            <h3>server response</h3>
+            <textarea readonly id="textarea_server_response" rows="10" class="form-control"></textarea>
+        </div>
+        <div id="div_client_response" class="row">
+            <h3>kuka response</h3>
+            <textarea readonly id="textarea_client_response" rows="10" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-6 col-sm-offset-1 container-fluid">
+        <div class="row">
+            <h3>video stream</h3>
+            <div id="div_video" class="col-sm-12">
+                <img id="image_left" class="col-sm-6">
+                <img id="image_right" class="col-sm-6">
             </div>
         </div>
-    </section>
+        <div id="div_system_logs" class="row">
+            <h3>system logs</h3>
+            <textarea readonly id="textarea_system_logs" rows="15" class="form-control"></textarea>
+        </div>
+    </div>
+</section>
 {% endblock main_section %}
 
 {% block scripts %}
@@ -94,8 +96,9 @@
             });
 
             socket.on('eki', (data)=> {
-                $('#textarea_server_response').text(data+'\n');
-                $('#textarea_client_response').text(data+'\n');
+                var responses = data.split(',');
+                $('#textarea_server_response').text(responses[0]+'\n');
+                $('#textarea_client_response').text(responses[1]+'\n');
             });
 
             socket.on('tool', (data)=> {
@@ -125,10 +128,16 @@
                     $('#tcp_host').attr('readonly', false);
                     $('#tcp_port').attr('readonly', false);
                     $('#tcp_btn').toggleClass('btn-danger btn-success');
-                    console.log('Stopping tcp connection on ' + host + ':' + port);
+                    msg = 'Stopping tcp connection on ' + host + ':' + port
+                    console.log(msg);
+                    $('#textarea_system_logs').append('INFO: '+msg+'\n');
                     socket.emit('tcp_stop', {host: host, port: port});
                 }
             });
         });
+
+
+
+
 </script>
 {% endblock scripts %}

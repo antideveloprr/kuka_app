@@ -112,7 +112,7 @@ def tcp_start(data):
     eki_service = EkiServerService(topic=DeviceForwarderTopic.EKI,
                                    device_pub_addr=InternalAddress.DEVICE_PUB,
                                    system_pub_addr=InternalAddress.SYSTEM_PUB,
-                                   processing_time=1,
+                                   processing_time=0.01,
                                    eki_addr=eki_addr)
 
     tool_service = ToolService(topic=DeviceForwarderTopic.TOOL,
